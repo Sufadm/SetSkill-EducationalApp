@@ -7,9 +7,7 @@ class AboutSkillset extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        iconTheme: const IconThemeData(color: Colors.black),
-      ),
+      appBar: AppBar(),
       body: Padding(
         padding: const EdgeInsets.all(25.0),
         child: Column(

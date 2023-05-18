@@ -8,9 +8,8 @@ class Privacy extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: Colors.black),
-        //backgroundColor: Colors.white,
-      ),
+          //backgroundColor: Colors.white,
+          ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
