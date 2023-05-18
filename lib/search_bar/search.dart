@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
+import 'package:provider/provider.dart';
 import 'package:set_skill/database/database_flutter/db_function.dart';
 import '../FlutterCourses/allcourse_adminadd.dart';
 
@@ -28,14 +29,14 @@ class CustomSearchDelegate extends SearchDelegate {
 
   @override
   Widget buildResults(BuildContext context) {
-    return ValueListenableBuilder(
-      valueListenable: mergedCourse,
-      builder: (context, value, child) {
-        final filteredList = value.where((data) =>
+    return Consumer<SearchProvider>(
+      builder: (context, search, child) {
+        final filteredList = search.mergedCourse.where((data) =>
             data.coursename.toLowerCase().contains(query.toLowerCase().trim()));
         return filteredList.isEmpty
-            ? const Center(
-                child: Text('No results found'),
+            ? Center(
+                child: Lottie.network(
+                    'https://assets10.lottiefiles.com/packages/lf20_h81pyyr2.json'),
               )
             : ListView.separated(
                 itemCount: filteredList.length,
@@ -75,18 +76,14 @@ class CustomSearchDelegate extends SearchDelegate {
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    return ValueListenableBuilder(
-      valueListenable: mergedCourse,
-      builder: (context, value, child) {
-        final filteredList = value.where((data) =>
+    return Consumer<SearchProvider>(
+      builder: (context, search, child) {
+        final filteredList = search.mergedCourse.where((data) =>
             data.coursename.toLowerCase().contains(query.toLowerCase().trim()));
         return filteredList.isEmpty
             ? Center(
-                child: Text(
-                  'No results found',
-                  style: GoogleFonts.lato(fontSize: 15),
-                ),
-              )
+                child: Lottie.network(
+                    'https://assets10.lottiefiles.com/packages/lf20_h81pyyr2.json'))
             : ListView.separated(
                 itemCount: filteredList.length,
                 separatorBuilder: (context, index) => const Divider(),

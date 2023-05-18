@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
+import 'package:provider/provider.dart';
 import 'package:set_skill/database/models/model_mern/data_model_mern.dart';
 import 'package:set_skill/loginpage/adminpage/overview_mern_1/overview_mern_1.dart';
 import '../../database/database_mern/database_mern.dart';
@@ -107,20 +109,23 @@ class _MernLecturesState extends State<MernLectures> {
                         style: GoogleFonts.lato(
                             fontWeight: FontWeight.bold, fontSize: 19),
                       ),
-                      ValueListenableBuilder(
-                        valueListenable: courselistNotifiermern,
-                        builder: (context, value, child) {
-                          if (value.isEmpty) {
+                      Consumer<CourseFlutterMernProvider>(
+                        builder: (context, coursemern, child) {
+                          if (coursemern.courseMernprovider.isEmpty) {
                             return Center(
-                                child: Text(
-                              'No sections available.',
-                              style: GoogleFonts.lato(),
-                            ));
+                              child: SizedBox(
+                                height: 190,
+                                child: Lottie.network(
+                                  'https://assets1.lottiefiles.com/private_files/lf30_lkquf6qz.json',
+                                ),
+                              ),
+                            );
                           } else {
                             return Expanded(
                               child: ListView.builder(
                                 itemBuilder: (context, index) {
-                                  final data = value[index];
+                                  final data =
+                                      coursemern.courseMernprovider[index];
                                   return Row(
                                     children: [
                                       IconButton(
@@ -144,7 +149,7 @@ class _MernLecturesState extends State<MernLectures> {
                                     ],
                                   );
                                 },
-                                itemCount: value.length,
+                                itemCount: coursemern.courseMernprovider.length,
                               ),
                             );
                           }

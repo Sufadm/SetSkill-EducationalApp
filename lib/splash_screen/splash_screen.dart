@@ -1,25 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
-import 'package:set_skill/loginpage/adminpage/widgets/login_choosecourse_page/firstpage.dart';
+import 'package:provider/provider.dart';
+import 'package:set_skill/database/database_Blog/db_blog.dart';
+import 'package:set_skill/database/database_flutter/db_function.dart';
+import 'package:set_skill/database/database_mern/database_mern.dart';
 
-// ignore: camel_case_types
-class Splash_Screen extends StatefulWidget {
-  const Splash_Screen({super.key});
+import '../loginpage/adminpage/widgets/login_choosecourse_page/firstpage.dart';
+
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
 
   @override
-  State<Splash_Screen> createState() => SplashScreenState();
+  State<SplashScreen> createState() => SplashScreenState();
 }
 
-// ignore: camel_case_types
-class SplashScreenState extends State<Splash_Screen> {
+class SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    navigate_to_Homescreen();
+    navigateToHomescreen();
     super.initState();
   }
 
-  // ignore: non_constant_identifier_names
-  navigate_to_Homescreen() async {
+  navigateToHomescreen() async {
     await Future.delayed(const Duration(seconds: 3));
     // ignore: use_build_context_synchronously
     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
@@ -29,6 +31,9 @@ class SplashScreenState extends State<Splash_Screen> {
 
   @override
   Widget build(BuildContext context) {
+    Provider.of<CourseFlutterProvider>(context).getallcourseFlutter();
+    Provider.of<CourseFlutterMernProvider>(context).getallcoursemern();
+    Provider.of<BlogProvider>(context).getallblogs();
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 225, 225, 228),
       body: Container(

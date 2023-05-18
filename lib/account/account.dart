@@ -7,8 +7,9 @@ class Account extends StatelessWidget {
   Future<void> share() async {
     await FlutterShare.share(
         title: ' Skillset',
-        text: 'share skillset',
-        linkUrl: 'sufad',
+        text: 'Skillset',
+        linkUrl:
+            'https://play.google.com/store/apps/details?id=in.brototype.set_skill',
         chooserTitle: 'Example Chooser Title');
   }
 

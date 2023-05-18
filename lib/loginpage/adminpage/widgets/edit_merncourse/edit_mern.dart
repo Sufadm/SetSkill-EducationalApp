@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:set_skill/database/models/model_mern/data_model_mern.dart';
 
 import '../../../../database/database_mern/database_mern.dart';
@@ -292,7 +293,7 @@ class _EditMernCourseState extends State<EditMernCourse> {
                   height: MediaQuery.of(context).size.height * 0.010,
                 ),
                 SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.1,
+                  width: MediaQuery.of(context).size.width * 0.2,
                   child: ElevatedButton(
                       style: ButtonStyle(
                           shape:
@@ -349,6 +350,7 @@ class _EditMernCourseState extends State<EditMernCourse> {
         ),
       ),
     );
-    editmerncourse(widget.index, courseflutter);
+    Provider.of<CourseFlutterMernProvider>(context, listen: false)
+        .editmerncourse(widget.index, courseflutter);
   }
 }

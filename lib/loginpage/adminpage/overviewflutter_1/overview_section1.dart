@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:readmore/readmore.dart';
 import 'package:set_skill/database/database_flutter/db_function.dart';
 import 'package:set_skill/loginpage/adminpage/overviewflutter_1/widgets/widgets.dart';
-import '../../../database/database_mycourse/db_mycourse.dart';
 
 class Section1Overview extends StatefulWidget {
   final String time;
@@ -31,10 +31,9 @@ class _Section1OverviewState extends State<Section1Overview> {
         backgroundColor: const Color.fromARGB(255, 41, 159, 198),
         title: Text('Overview', style: GoogleFonts.lato()),
       ),
-      body: ValueListenableBuilder(
-        valueListenable: courselistNotifier,
-        builder: (context, value, child) {
-          final data = value[widget.index];
+      body: Consumer<CourseFlutterProvider>(
+        builder: (context, courseflutter, child) {
+          final data = courseflutter.courseflutterprovider[widget.index];
           return ListView.builder(
             itemCount: 1,
             itemBuilder: (context, index) {
@@ -155,7 +154,9 @@ class _Section1OverviewState extends State<Section1Overview> {
                             onPressed: () async {
                               for (int i = 0; i <= 6; i++) {
                                 if (data.sections == 'section $i') {
-                                  adding(data);
+                                  Provider.of<CourseFlutterProvider>(context,
+                                          listen: false)
+                                      .adding(data);
                                   Navigator.push(context,
                                       MaterialPageRoute(builder: (context) {
                                     return flutterallcourse(data, index);

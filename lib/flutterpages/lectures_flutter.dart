@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
+import 'package:provider/provider.dart';
 import 'package:set_skill/database/database_flutter/db_function.dart';
 import 'package:set_skill/flutterpages/mernstack_pages/widgets.dart';
 import 'package:set_skill/flutterpages/widget.dart';
@@ -105,20 +107,23 @@ class _LecturesFlutterState extends State<LecturesFlutter> {
                         style: GoogleFonts.lato(
                             fontWeight: FontWeight.bold, fontSize: 19),
                       ),
-                      ValueListenableBuilder(
-                        valueListenable: courselistNotifier,
-                        builder: (context, value, child) {
-                          if (value.isEmpty) {
+                      Consumer<CourseFlutterProvider>(
+                        builder: (context, coursemern, child) {
+                          if (coursemern.courseflutterprovider.isEmpty) {
                             return Center(
-                                child: Text(
-                              'No sections available.',
-                              style: GoogleFonts.lato(),
-                            ));
+                              child: SizedBox(
+                                height: 190,
+                                child: Lottie.network(
+                                  'https://assets1.lottiefiles.com/private_files/lf30_lkquf6qz.json',
+                                ),
+                              ),
+                            );
                           } else {
                             return Expanded(
                               child: ListView.builder(
                                 itemBuilder: ((context, index) {
-                                  final data = value[index];
+                                  final data =
+                                      coursemern.courseflutterprovider[index];
                                   return Row(
                                     children: [
                                       IconButton(
@@ -143,7 +148,8 @@ class _LecturesFlutterState extends State<LecturesFlutter> {
                                     ],
                                   );
                                 }),
-                                itemCount: value.length,
+                                itemCount:
+                                    coursemern.courseflutterprovider.length,
                               ),
                             );
                           }

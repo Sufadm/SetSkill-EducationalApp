@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:readmore/readmore.dart';
 import 'package:set_skill/database/database_mern/database_mern.dart';
-import 'package:set_skill/database/database_mycourse/db_mycourse.dart';
 import 'package:set_skill/loginpage/adminpage/overview_mern_1/widgets/widgets_mern.dart';
 
 class Section1MernOverview extends StatefulWidget {
@@ -31,10 +31,9 @@ class _Section1MernOverviewState extends State<Section1MernOverview> {
         backgroundColor: const Color(0xFF0D4B86),
         title: Text('Overview', style: GoogleFonts.lato()),
       ),
-      body: ValueListenableBuilder(
-        valueListenable: courselistNotifiermern,
-        builder: (context, value, child) {
-          final data = value[widget.index];
+      body: Consumer<CourseFlutterMernProvider>(
+        builder: (context, coursemern, child) {
+          final data = coursemern.courseMernprovider[widget.index];
           return ListView.builder(
             itemCount: 1,
             itemBuilder: (context, index) {
@@ -138,7 +137,10 @@ class _Section1MernOverviewState extends State<Section1MernOverview> {
                             onPressed: () {
                               for (int i = 1; i <= 6; i++) {
                                 if (data.sectionsmern == 'section $i') {
-                                  addingmern(data);
+                                  Provider.of<CourseFlutterMernProvider>(
+                                          context,
+                                          listen: false)
+                                      .addingmern(data);
                                   Navigator.push(context,
                                       MaterialPageRoute(builder: (context) {
                                     return mernallcourse(data, index);

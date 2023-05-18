@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:set_skill/database/models/blogmodel/blog_model.dart';
 
 import '../../../../database/database_Blog/db_blog.dart';
@@ -211,6 +212,7 @@ class _EditPageBlogState extends State<EditPageBlog> {
         ),
       ),
     );
-    editblogsBottom(widget.index, blogs);
+    Provider.of<BlogProvider>(context, listen: false)
+        .editblogsBottom(widget.index, blogs);
   }
 }

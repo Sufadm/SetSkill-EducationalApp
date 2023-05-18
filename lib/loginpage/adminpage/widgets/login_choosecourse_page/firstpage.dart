@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:set_skill/bottomnavigation/bottomnav.dart';
 import 'package:set_skill/loginpage/adminpage/widgets/admin_login_page/adminlogin.dart';
+
+import '../../../../bottomnavigation/bottomnav.dart';
 
 class Firstpage extends StatelessWidget {
   const Firstpage({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,7 +13,7 @@ class Firstpage extends StatelessWidget {
         decoration: const BoxDecoration(
             image: DecorationImage(
                 image: NetworkImage(
-                    'https://www.pwc.be/en/FY21/images/2col-industrialcyberresponse.jpg'),
+                    'https://www.theforage.com/blog/wp-content/uploads/2022/09/tech-companies.jpg'),
                 fit: BoxFit.cover)),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -24,23 +24,17 @@ class Firstpage extends StatelessWidget {
                 padding: EdgeInsets.all(8.0),
               ),
               SizedBox(
-                //height: 220,
                 height: MediaQuery.of(context).size.height * 0.22,
               ),
               SizedBox(
-                // height: 55,
                 height: MediaQuery.of(context).size.height * 0.055,
-
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Expanded(
                       child: SizedBox(
-                        // height: 50,
-                        //width: 50,
                         height: MediaQuery.of(context).size.height * 0.5,
                         width: MediaQuery.of(context).size.width * 0.5,
-
                         child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               shape: RoundedRectangleBorder(
@@ -81,7 +75,7 @@ class Firstpage extends StatelessWidget {
                             onPressed: () {
                               Navigator.push(context,
                                   MaterialPageRoute(builder: (context) {
-                                return const AdminLoginPage();
+                                return LoginPage();
                               }));
                             },
                             child: Text(

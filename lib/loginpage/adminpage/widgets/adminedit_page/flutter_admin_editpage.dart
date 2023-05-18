@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:set_skill/database/models/fluttermodel/data_model.dart';
 import 'package:set_skill/loginpage/adminpage/widgets/adminlist_courses/list_admin_flutter_section.dart';
 import '../../../../database/database_flutter/db_function.dart';
@@ -168,9 +169,7 @@ class _AdminAccessPageState extends State<AdminAccessPage> {
                     }
                   },
                   controller: _coursename,
-                  style: const TextStyle(
-                      // color: Color.fromARGB(255, 0, 0, 0),
-                      fontStyle: FontStyle.italic),
+                  style: const TextStyle(fontStyle: FontStyle.italic),
                   decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Course Name',
@@ -189,9 +188,7 @@ class _AdminAccessPageState extends State<AdminAccessPage> {
                     }
                   },
                   controller: _logolink,
-                  style: const TextStyle(
-                      // color: Color.fromARGB(255, 0, 0, 0),
-                      fontStyle: FontStyle.italic),
+                  style: const TextStyle(fontStyle: FontStyle.italic),
                   decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Logo Link',
@@ -313,7 +310,8 @@ class _AdminAccessPageState extends State<AdminAccessPage> {
         ischecked: false,
       );
 
-      addcourseflutter(model1);
+      Provider.of<CourseFlutterProvider>(context, listen: false)
+          .addcourseflutter(model1);
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
         return const ListSectionsFlutter();
       }));

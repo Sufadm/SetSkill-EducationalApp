@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:set_skill/database/database_Blog/db_blog.dart';
 import 'package:set_skill/database/models/blogmodel/blog_model.dart';
 import 'package:set_skill/loginpage/adminpage/widgets/blogs_admin_page/blog_list.dart';
@@ -13,10 +14,15 @@ class BlogsAdmin extends StatefulWidget {
 
 class _BlogsAdminState extends State<BlogsAdmin> {
   final _logolink = TextEditingController();
+
   final _topic = TextEditingController();
+
   final _name = TextEditingController();
+
   final _imagelink = TextEditingController();
+
   final _blog = TextEditingController();
+
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -187,7 +193,7 @@ class _BlogsAdminState extends State<BlogsAdmin> {
           blogs: blog,
           name: name,
           topic: topic);
-      addblogs(model1);
+      Provider.of<BlogProvider>(context, listen: false).addblogs(model1);
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
         return const BlogList();
       }));

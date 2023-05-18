@@ -61,7 +61,7 @@ class _MernAllCourseState extends State<MernAllCourse> {
                     Padding(
                       padding: const EdgeInsets.all(0.0),
                       child: Card(
-                        child: Container(
+                        child: SizedBox(
                           width: double.infinity,
                           height: MediaQuery.of(context).size.height * 0.11,
                           child: Row(

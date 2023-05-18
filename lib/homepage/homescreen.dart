@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:set_skill/database/database_flutter/db_function.dart';
 import 'package:set_skill/homepage/widgets/first_section.dart';
 import '../search_bar/search.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,16 +22,12 @@ class _HomeScreenState extends State<HomeScreen> {
           Padding(
             padding: const EdgeInsets.all(2.0),
             child: IconButton(
-              onPressed: () async {
-                await merging();
-                showSearch(
-                    context: context,
-                    // delegate to customize the search bar
-                    delegate: CustomSearchDelegate());
+              onPressed: () {
+                Provider.of<SearchProvider>(context, listen: false).merging();
+                showSearch(context: context, delegate: CustomSearchDelegate());
               },
               icon: const Icon(
                 Icons.search,
-                // color: Colors.black,
               ),
             ),
           ),
@@ -45,14 +37,14 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           children: [
             //first  Main Box container-----------------------------------------
-
             const FirstSection(),
             //main container end------------------------------------------------------------------------------------------------------------------
-
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.015,
             ),
+
             //!categories started================================================================================================================================
+
             Container(
                 margin: const EdgeInsets.only(left: 13),
                 alignment: Alignment.topLeft,
@@ -180,6 +172,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         Image.network(
                           'https://img.business.com/w/700/aHR0cHM6Ly9pbWFnZXMuYnVzaW5lc3NuZXdzZGFpbHkuY29tL2FwcC91cGxvYWRzLzIwMjIvMDQvMDQwNzQ1NTMvMTU1NDI0NDAxMC5qcGVn',
+                          fit: BoxFit.cover,
                           // height: 100,
                           height: MediaQuery.of(context).size.height * 0.11,
                         ),
@@ -209,7 +202,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Image.network(
-                          'https://www.rlogical.com/wp-content/uploads/2020/12/MERN-Stack-considered-the-Best-for-Developing-Web-Apps.png',
+                          'https://blog.nitsantech.com/fileadmin/ns_theme_ns2019/blog/_live/What_is_the_MERN_stack_and_how_do_I_use_it_/What_is_the_MERN_stack_and_how_do_I_use_it.jpg',
+                          fit: BoxFit.cover,
                           height: MediaQuery.of(context).size.height * 0.113,
                         ),
                         const ListTile(

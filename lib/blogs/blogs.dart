@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import '../database/database_Blog/db_blog.dart';
 import 'blogspage/all_blogs.dart';
+import 'package:lottie/lottie.dart';
 
 class Blogs extends StatelessWidget {
   const Blogs({super.key});
@@ -13,22 +15,21 @@ class Blogs extends StatelessWidget {
       appBar: AppBar(),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: ValueListenableBuilder(
-          valueListenable: bloglistNotifier,
-          builder: (context, value, child) {
-            if (value.isEmpty) {
+        child: Consumer<BlogProvider>(
+          builder: (context, blogs, child) {
+            if (blogs.blogmodelprovider.isEmpty) {
               return Center(
-                  child: Text(
-                'No Blogs available.',
-                style: GoogleFonts.lato(),
-              ));
+                child: Lottie.network(
+                  'https://assets1.lottiefiles.com/private_files/lf30_lkquf6qz.json',
+                ),
+              );
             } else {
               return GridView.builder(
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2),
-                itemCount: value.length,
+                itemCount: blogs.blogmodelprovider.length,
                 itemBuilder: (context, index) {
-                  final data = value[index];
+                  final data = blogs.blogmodelprovider[index];
                   return GestureDetector(
                     onTap: () => Navigator.push(context,
                         MaterialPageRoute(builder: (context) {

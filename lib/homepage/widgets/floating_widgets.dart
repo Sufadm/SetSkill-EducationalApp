@@ -15,7 +15,7 @@ class FloatingActionButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OpenContainer(
-      transitionDuration: const Duration(milliseconds: 500),
+      transitionDuration: const Duration(milliseconds: 450),
       openBuilder: (context, _) => const BlogsAdmin(),
       closedShape: const CircleBorder(),
       closedColor: Theme.of(context).primaryColor,
@@ -39,7 +39,7 @@ class FloatingActionButtonWidgetFlutter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OpenContainer(
-      transitionDuration: const Duration(milliseconds: 500),
+      transitionDuration: const Duration(milliseconds: 450),
       openBuilder: (context, _) => const AdminAccessPage(),
       closedShape: const CircleBorder(),
       closedColor: Theme.of(context).primaryColor,
@@ -63,7 +63,7 @@ class FloatingActionButtonWidgetMern extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OpenContainer(
-      transitionDuration: const Duration(milliseconds: 500),
+      transitionDuration: const Duration(milliseconds: 450),
       openBuilder: (context, _) => const MernAddCourse(),
       closedShape: const CircleBorder(),
       closedColor: Theme.of(context).primaryColor,
@@ -87,7 +87,7 @@ class FloatingActionButtonWidgetBlog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OpenContainer(
-      transitionDuration: const Duration(milliseconds: 400),
+      transitionDuration: const Duration(milliseconds: 450),
       openBuilder: (context, _) => const BlogList(),
       closedShape: const CircleBorder(),
       closedColor: Theme.of(context).primaryColor,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:set_skill/database/models/fluttermodel/data_model.dart';
 import '../../../../database/database_flutter/db_function.dart';
 
@@ -249,9 +250,7 @@ class _EditFlutterState extends State<EditFlutter> {
                     }
                   },
                   controller: _youtubevedioid,
-                  style: const TextStyle(
-                      // color: Color.fromARGB(255, 0, 0, 0),
-                      fontStyle: FontStyle.italic),
+                  style: const TextStyle(fontStyle: FontStyle.italic),
                   decoration: InputDecoration(
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(50)),
@@ -290,7 +289,7 @@ class _EditFlutterState extends State<EditFlutter> {
                   height: MediaQuery.of(context).size.height * 0.010,
                 ),
                 SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.1,
+                  width: MediaQuery.of(context).size.width * 0.2,
                   child: ElevatedButton(
                       style: ButtonStyle(
                           shape:
@@ -348,6 +347,7 @@ class _EditFlutterState extends State<EditFlutter> {
         ),
       ),
     );
-    editcourseflutter(widget.index, courseflutter);
+    Provider.of<CourseFlutterProvider>(context, listen: false)
+        .editcourseflutter(widget.index, courseflutter);
   }
 }

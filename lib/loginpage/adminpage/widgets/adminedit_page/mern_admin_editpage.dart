@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:set_skill/database/models/model_mern/data_model_mern.dart';
 import 'package:set_skill/loginpage/adminpage/widgets/adminlist_courses/list_admin_mern_section.dart';
+
 import '../../../../database/database_mern/database_mern.dart';
 
 class MernAddCourse extends StatefulWidget {
@@ -309,7 +311,8 @@ class _MernAddCourseState extends State<MernAddCourse> {
           blog: blg,
           sectionsmern: sectionsmern,
           ischecked: false);
-      addcoursemern(model2);
+      Provider.of<CourseFlutterMernProvider>(context, listen: false)
+          .addcoursemern(model2);
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
         return const ListSectionsMern();
       }));
