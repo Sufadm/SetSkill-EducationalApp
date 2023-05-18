@@ -4,19 +4,17 @@ import 'package:set_skill/blogs/blogs.dart';
 import 'package:set_skill/homepage/homescreen.dart';
 import '../mycourse/mycourse.dart';
 
-// ignore: camel_case_types
-class Bottom_Nav extends StatefulWidget {
-  const Bottom_Nav({super.key});
+class BottomNav extends StatefulWidget {
+  const BottomNav({super.key});
 
   @override
-  State<Bottom_Nav> createState() => _Bottom_NavState();
+  State<BottomNav> createState() => _BottomNavState();
 }
 
-// ignore: camel_case_types
-class _Bottom_NavState extends State<Bottom_Nav> {
+class _BottomNavState extends State<BottomNav> {
   int _selectedIndex = 0;
-  // ignore: prefer_final_fields
-  static List<Widget> _widgetOptions = <Widget>[
+
+  static final List<Widget> _widgetOptions = <Widget>[
     const HomeScreen(),
     const MyCourse(),
     const Blogs(),

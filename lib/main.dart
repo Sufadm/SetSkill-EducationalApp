@@ -57,6 +57,9 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         darkTheme: ThemeData.dark(),
+        theme: ThemeData(
+          brightness: Brightness.dark,
+        ),
         title: 'Skill Set',
         home: const SplashScreen(),
         debugShowCheckedModeBanner: false,

@@ -47,7 +47,7 @@ class Firstpage extends StatelessWidget {
                             onPressed: () {
                               Navigator.push(context,
                                   MaterialPageRoute(builder: (context) {
-                                return const Bottom_Nav();
+                                return const BottomNav();
                               }));
                             },
                             child: Text(

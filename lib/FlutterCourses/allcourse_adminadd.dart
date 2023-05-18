@@ -8,13 +8,15 @@ class FlutterAllCourse extends StatefulWidget {
   final String youtubeid;
   final String blog;
   final int index;
-  const FlutterAllCourse(
-      {super.key,
-      required this.coursename,
-      required this.logolink,
-      required this.youtubeid,
-      required this.blog,
-      required this.index});
+
+  const FlutterAllCourse({
+    Key? key,
+    required this.coursename,
+    required this.logolink,
+    required this.youtubeid,
+    required this.blog,
+    required this.index,
+  }) : super(key: key);
 
   @override
   State<FlutterAllCourse> createState() => _FlutterAllCourseState();
@@ -30,7 +32,7 @@ class _FlutterAllCourseState extends State<FlutterAllCourse> {
       flags: const YoutubePlayerFlags(
         forceHD: false,
         autoPlay: false,
-        hideThumbnail: false,
+        hideThumbnail: true,
         disableDragSeek: false,
         loop: false,
       ),
@@ -41,13 +43,13 @@ class _FlutterAllCourseState extends State<FlutterAllCourse> {
   @override
   Widget build(BuildContext context) {
     return OrientationBuilder(
-        builder: (BuildContext context, Orientation orientation) {
-      if (orientation == Orientation.landscape) {
-        return Scaffold(
-          body: youtubeHierarchy(),
-        );
-      } else {
-        return Scaffold(
+      builder: (BuildContext context, Orientation orientation) {
+        if (orientation == Orientation.landscape) {
+          return Scaffold(
+            body: youtubeHierarchy(),
+          );
+        } else {
+          return Scaffold(
             appBar: AppBar(),
             body: SingleChildScrollView(
               child: Padding(
@@ -60,9 +62,7 @@ class _FlutterAllCourseState extends State<FlutterAllCourse> {
                       child: Card(
                         child: SizedBox(
                           width: double.infinity,
-                          // height: 100,
                           height: MediaQuery.of(context).size.height * 0.11,
-
                           child: Row(
                             children: [
                               Column(
@@ -78,9 +78,10 @@ class _FlutterAllCourseState extends State<FlutterAllCourse> {
                                     child: Text(
                                       widget.coursename,
                                       style: GoogleFonts.robotoMono(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 19,
-                                          fontStyle: FontStyle.italic),
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 19,
+                                        fontStyle: FontStyle.italic,
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -105,37 +106,46 @@ class _FlutterAllCourseState extends State<FlutterAllCourse> {
                       child: Text(
                         widget.coursename,
                         style: GoogleFonts.lato(
-                            fontWeight: FontWeight.bold, fontSize: 17),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 17,
+                        ),
                       ),
                     ),
                     Container(
                       margin: const EdgeInsets.only(left: 10, top: 7),
                       child: Text(
                         widget.blog,
-                        style: GoogleFonts.lato(fontWeight: FontWeight.bold),
+                        style: GoogleFonts.lato(
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ],
                 ),
               ),
-            ));
-      }
-    });
+            ),
+          );
+        }
+      },
+    );
   }
 
-  youtubeHierarchy() {
-    return Column(
-      children: [
-        Align(
-          child: FittedBox(
-            fit: BoxFit.fill,
-            child: YoutubePlayer(
-              aspectRatio: 16 / 9,
-              controller: _controller,
-            ),
+  Widget youtubeHierarchy() {
+    return SizedBox(
+      height: 300, // Set your desired height here
+      child: YoutubePlayer(
+        controller: _controller,
+        bottomActions: [
+          const SizedBox(width: 14.0),
+          CurrentPosition(),
+          const SizedBox(width: 8.0),
+          ProgressBar(
+            isExpanded: true,
           ),
-        ),
-      ],
+          RemainingDuration(),
+          const PlaybackSpeedButton(),
+        ],
+      ),
     );
   }
 }
