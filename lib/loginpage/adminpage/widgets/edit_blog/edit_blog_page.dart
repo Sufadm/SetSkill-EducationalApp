@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:set_skill/database/models/blogmodel/blog_model.dart';
 
 import '../../../../database/database_Blog/db_blog.dart';
+import '../../../../zglobalconst/blogstextform.dart';
 
 class EditPageBlog extends StatefulWidget {
   final String logolink;
@@ -65,100 +66,21 @@ class _EditPageBlogState extends State<EditPageBlog> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                TextFormField(
-                  controller: _logolink,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Logolink required';
-                    } else {
-                      return null;
-                    }
-                  },
-                  style: const TextStyle(fontStyle: FontStyle.italic),
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Logolink',
-                      hintStyle: TextStyle()),
+                LogoLinkTextFormWidget(logolink: _logolink),
+                const SizedBox(
+                  height: 10,
                 ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.010,
+                NameTextFormWidget(name: _name),
+                const SizedBox(height: 10),
+                TopicTextFormWidget(topic: _topic),
+                const SizedBox(
+                  height: 10,
                 ),
-                TextFormField(
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Name required';
-                    } else {
-                      return null;
-                    }
-                  },
-                  controller: _name,
-                  style: const TextStyle(fontStyle: FontStyle.italic),
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Name',
-                      hintStyle:
-                          TextStyle(color: Color.fromARGB(255, 3, 2, 2))),
+                ImageLinkTextFormWidget(imagelink: _imagelink),
+                const SizedBox(
+                  height: 10,
                 ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.010,
-                ),
-                TextFormField(
-                  controller: _topic,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return ' Topic Required';
-                    } else {
-                      return null;
-                    }
-                  },
-                  style: const TextStyle(fontStyle: FontStyle.italic),
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Topic',
-                      hintStyle: TextStyle()),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.010,
-                ),
-                TextFormField(
-                  controller: _imagelink,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return ' ImageLink Required';
-                    } else {
-                      return null;
-                    }
-                  },
-                  style: const TextStyle(fontStyle: FontStyle.italic),
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'ImageLink',
-                      hintStyle:
-                          TextStyle(color: Color.fromARGB(255, 3, 2, 2))),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.010,
-                ),
-                TextFormField(
-                  maxLines: 15,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return ' Blogs Required';
-                    } else {
-                      return null;
-                    }
-                  },
-                  controller: _blogs,
-                  style: const TextStyle(
-                      // color: Color.fromARGB(255, 0, 0, 0),
-                      fontStyle: FontStyle.italic),
-                  decoration: const InputDecoration(
-                      alignLabelWithHint: true,
-                      border: OutlineInputBorder(),
-                      labelText: 'Blogs',
-                      hintStyle:
-                          TextStyle(color: Color.fromARGB(255, 3, 2, 2))),
-                ),
+                BlogTextFormWidget(blog: _blogs),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.010,
                 ),

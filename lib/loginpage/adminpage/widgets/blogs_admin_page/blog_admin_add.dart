@@ -3,7 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:set_skill/database/database_Blog/db_blog.dart';
 import 'package:set_skill/database/models/blogmodel/blog_model.dart';
-import 'package:set_skill/loginpage/adminpage/widgets/blogs_admin_page/blog_list.dart';
+
+import '../../../../zglobalconst/blogstextform.dart';
 
 class BlogsAdmin extends StatefulWidget {
   const BlogsAdmin({super.key});
@@ -48,102 +49,21 @@ class _BlogsAdminState extends State<BlogsAdmin> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                TextFormField(
-                  controller: _logolink,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Logolink required';
-                    } else {
-                      return null;
-                    }
-                  },
-                  style: const TextStyle(fontStyle: FontStyle.italic),
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Logolink',
-                      hintStyle: TextStyle()),
-                ),
+                LogoLinkTextFormWidget(logolink: _logolink),
                 const SizedBox(
                   height: 10,
                 ),
-                TextFormField(
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Name required';
-                    } else {
-                      return null;
-                    }
-                  },
-                  controller: _name,
-                  style: const TextStyle(fontStyle: FontStyle.italic),
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Name',
-                      hintStyle:
-                          TextStyle(color: Color.fromARGB(255, 3, 2, 2))),
-                ),
+                NameTextFormWidget(name: _name),
                 const SizedBox(height: 10),
-                TextFormField(
-                  controller: _topic,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return ' Topic Required';
-                    } else {
-                      return null;
-                    }
-                  },
-                  style: const TextStyle(
-                      // color: Color.fromARGB(255, 0, 0, 0),
-                      fontStyle: FontStyle.italic),
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Topic',
-                      hintStyle: TextStyle()),
-                ),
+                TopicTextFormWidget(topic: _topic),
                 const SizedBox(
                   height: 10,
                 ),
-                TextFormField(
-                  controller: _imagelink,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return ' ImageLink Required';
-                    } else {
-                      return null;
-                    }
-                  },
-                  style: const TextStyle(
-                      // color: Color.fromARGB(255, 0, 0, 0),
-                      fontStyle: FontStyle.italic),
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'ImageLink',
-                      hintStyle:
-                          TextStyle(color: Color.fromARGB(255, 3, 2, 2))),
-                ),
+                ImageLinkTextFormWidget(imagelink: _imagelink),
                 const SizedBox(
                   height: 10,
                 ),
-                TextFormField(
-                  maxLines: 15,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return ' Blogs Required';
-                    } else {
-                      return null;
-                    }
-                  },
-                  controller: _blog,
-                  style: const TextStyle(
-                      // color: Color.fromARGB(255, 0, 0, 0),
-                      fontStyle: FontStyle.italic),
-                  decoration: const InputDecoration(
-                      alignLabelWithHint: true,
-                      border: OutlineInputBorder(),
-                      labelText: 'Blogs',
-                      hintStyle:
-                          TextStyle(color: Color.fromARGB(255, 3, 2, 2))),
-                ),
+                BlogTextFormWidget(blog: _blog),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.010,
                 ),
@@ -194,9 +114,7 @@ class _BlogsAdminState extends State<BlogsAdmin> {
           name: name,
           topic: topic);
       Provider.of<BlogProvider>(context, listen: false).addblogs(model1);
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-        return const BlogList();
-      }));
+      Navigator.pop(context);
     }
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:set_skill/zzglobalconst/constants.dart';
+import 'package:set_skill/zglobalconst/constants.dart';
 
 class FirstSection extends StatelessWidget {
   const FirstSection({

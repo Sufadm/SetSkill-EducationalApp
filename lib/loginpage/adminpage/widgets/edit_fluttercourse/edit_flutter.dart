@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:set_skill/database/models/fluttermodel/data_model.dart';
 import '../../../../database/database_flutter/db_function.dart';
-import '../../../../zzglobalconst/textform_widget.dart';
+import '../../../../zglobalconst/textform_widget.dart';
 
 class EditFlutter extends StatefulWidget {
   final String overviewcoursename;

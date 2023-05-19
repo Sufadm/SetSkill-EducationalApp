@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:set_skill/database/models/fluttermodel/data_model.dart';
-import 'package:set_skill/zzglobalconst/textform_widget.dart';
-import 'package:set_skill/loginpage/adminpage/widgets/adminlist_courses/list_admin_flutter_section.dart';
+import 'package:set_skill/zglobalconst/textform_widget.dart';
 import '../../../../database/database_flutter/db_function.dart';
 
 class AdminAccessPage extends StatefulWidget {
@@ -164,9 +163,8 @@ class _AdminAccessPageState extends State<AdminAccessPage> {
 
       Provider.of<CourseFlutterProvider>(context, listen: false)
           .addcourseflutter(model1);
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-        return const ListSectionsFlutter();
-      }));
+
+      Navigator.pop(context);
     }
   }
 }
