@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../database/models/model_mern/data_model_mern.dart';
-import '../../loginpage/adminpage/overview_mern_1/overview_mern_1.dart';
+import '../../../database/models/model_mern/data_model_mern.dart';
+import '../../../loginpage/adminpage/overview_mern_1/overview_mern_1.dart';
 
 SizedBox lesson4() {
   return SizedBox(
@@ -53,9 +53,11 @@ SizedBox lesson4() {
 
 Section1MernOverview section1mernoverview(CourseMern data, int index) {
   return Section1MernOverview(
-      time: data.time,
-      overviewcoursename: data.overviewcoursename,
-      beginner: data.beginner,
-      whatyouwillearn: data.whatyouwilllearn,
-      index: index);
+    time: data.time,
+    overviewcoursename: data.overviewcoursename,
+    beginner: data.beginner,
+    whatyouwillearn: data.whatyouwilllearn,
+    index: index,
+    text: 'Start Learning',
+  );
 }

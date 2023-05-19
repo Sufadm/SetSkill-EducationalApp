@@ -12,8 +12,7 @@ class Firstpage extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(
             image: DecorationImage(
-                image: NetworkImage(
-                    'https://www.theforage.com/blog/wp-content/uploads/2022/09/tech-companies.jpg'),
+                image: AssetImage('images/tech-companies.jpg'),
                 fit: BoxFit.cover)),
         child: Padding(
           padding: const EdgeInsets.all(8.0),

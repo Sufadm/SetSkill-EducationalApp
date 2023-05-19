@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../database/models/fluttermodel/data_model.dart';
-import '../loginpage/adminpage/overviewflutter_1/overview_section1.dart';
+import '../../database/models/fluttermodel/data_model.dart';
+import '../../loginpage/adminpage/overviewflutter_1/overview_section1.dart';
 
 class Lesson4 extends StatelessWidget {
   const Lesson4({super.key});
@@ -60,9 +60,11 @@ class Lesson4 extends StatelessWidget {
 
 Section1Overview section1overview(CourseFlutter data, int index) {
   return Section1Overview(
-      time: data.time,
-      overviewcoursename: data.overviewcoursename,
-      beginner: data.beginner,
-      whatyouwillearn: data.whatyouwilllearn,
-      index: index);
+    time: data.time,
+    overviewcoursename: data.overviewcoursename,
+    beginner: data.beginner,
+    whatyouwillearn: data.whatyouwilllearn,
+    index: index,
+    text: 'Start Learning',
+  );
 }

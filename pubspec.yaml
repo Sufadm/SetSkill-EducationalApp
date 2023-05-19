@@ -73,6 +73,13 @@ flutter:
     - images/0_ObJbOfJnx4QIPUq9.png
     - images/images (1).jpeg
     - images/360_F_207459754_XZ4VRclGSmux91GZ0ukm4oOPcF8wkN08.jpg
+    - images/download.jpeg
+    - images/MERN-Stack-considered-the-Best-for-Developing-Web-Apps.png
+    - images/guide-to-everyhing-laptop-640-1656580338.jpg
+    - images/What_is_the_MERN_stack_and_how_do_I_use_it.jpg
+    - images/Mern-Stack-Development-companies.jpg
+    - images/tech-companies.jpg
+    - images/flutter-for-enterprise-app-development.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
   # For details regarding adding assets from package dependencies, see

@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:lottie/lottie.dart';
-import 'package:provider/provider.dart';
-import 'package:set_skill/database/database_flutter/db_function.dart';
-import 'package:set_skill/flutterpages/mernstack_pages/widgets.dart';
-import 'package:set_skill/flutterpages/widget.dart';
+import 'package:set_skill/flutterpages/mernstack_pages/widgets/lesson_four.dart';
+import 'package:set_skill/flutterpages/widgets/lesson_two_widget.dart';
 
 class LecturesFlutter extends StatefulWidget {
   const LecturesFlutter({super.key});
@@ -28,8 +25,8 @@ class _LecturesFlutterState extends State<LecturesFlutter> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Image.network(
-                'https://www.mindinventory.com/blog/wp-content/uploads/2022/09/flutter-for-enterprise-app-development.jpeg',
+              Image.asset(
+                'images/flutter-for-enterprise-app-development.jpeg',
               ),
               const SizedBox(
                 height: 15,
@@ -87,78 +84,7 @@ class _LecturesFlutterState extends State<LecturesFlutter> {
               ),
               //--------LESSON1 INTRODUCTION END---------------------------
               //--------LESSON 2 STARTED-------------------
-              SizedBox(
-                width: double.infinity,
-                height: 260,
-                child: Card(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        margin: const EdgeInsets.only(left: 15, top: 10),
-                        child: Text('Lesson 2',
-                            style:
-                                GoogleFonts.lato(fontWeight: FontWeight.bold)),
-                      ),
-                      SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.005),
-                      Text(
-                        '   Curriculum',
-                        style: GoogleFonts.lato(
-                            fontWeight: FontWeight.bold, fontSize: 19),
-                      ),
-                      Consumer<CourseFlutterProvider>(
-                        builder: (context, coursemern, child) {
-                          if (coursemern.courseflutterprovider.isEmpty) {
-                            return Center(
-                              child: SizedBox(
-                                height: 190,
-                                child: Lottie.network(
-                                  'https://assets1.lottiefiles.com/private_files/lf30_lkquf6qz.json',
-                                ),
-                              ),
-                            );
-                          } else {
-                            return Expanded(
-                              child: ListView.builder(
-                                itemBuilder: ((context, index) {
-                                  final data =
-                                      coursemern.courseflutterprovider[index];
-                                  return Row(
-                                    children: [
-                                      IconButton(
-                                          onPressed: () {
-                                            for (int i = 1; i <= 6; i++) {
-                                              if (data.sections ==
-                                                  'section $i') {
-                                                Navigator.push(context,
-                                                    MaterialPageRoute(
-                                                        builder: (context) {
-                                                  return section1overview(
-                                                      data, index);
-                                                }));
-                                                break;
-                                              }
-                                            }
-                                          },
-                                          icon: const Icon(Icons.play_arrow)),
-                                      Text(data.sections,
-                                          style: GoogleFonts.lato(
-                                              fontWeight: FontWeight.bold)),
-                                    ],
-                                  );
-                                }),
-                                itemCount:
-                                    coursemern.courseflutterprovider.length,
-                              ),
-                            );
-                          }
-                        },
-                      )
-                    ],
-                  ),
-                ),
-              ),
+              const Lesson2SectionFlutter(),
               //LESSON 2 END---------------------------------------------------------------------
               //LESSON 3 STARTED----------------------
               Card(
@@ -213,6 +139,8 @@ class _LecturesFlutterState extends State<LecturesFlutter> {
     );
   }
 }
+
+
 
 
 

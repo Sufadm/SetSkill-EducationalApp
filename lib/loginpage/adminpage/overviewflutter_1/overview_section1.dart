@@ -11,13 +11,15 @@ class Section1Overview extends StatefulWidget {
   final String beginner;
   final String whatyouwillearn;
   final int index;
+  final String text;
   const Section1Overview(
       {super.key,
       required this.time,
       required this.overviewcoursename,
       required this.beginner,
       required this.whatyouwillearn,
-      required this.index});
+      required this.index,
+      required this.text});
 
   @override
   State<Section1Overview> createState() => _Section1OverviewState();
@@ -41,8 +43,8 @@ class _Section1OverviewState extends State<Section1Overview> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Image.network(
-                      'https://www.mindinventory.com/blog/wp-content/uploads/2022/09/flutter-for-enterprise-app-development.jpeg',
+                    Image.asset(
+                      'images/flutter-for-enterprise-app-development.jpeg',
                     ),
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.015,
@@ -165,7 +167,7 @@ class _Section1OverviewState extends State<Section1Overview> {
                               }
                             },
                             child: Text(
-                              'Start Learning',
+                              widget.text,
                               style: GoogleFonts.lato(
                                   fontWeight: FontWeight.bold, fontSize: 20),
                             )))

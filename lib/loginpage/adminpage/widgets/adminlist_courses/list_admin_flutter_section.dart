@@ -6,7 +6,7 @@ import 'package:set_skill/database/models/fluttermodel/data_model.dart';
 import 'package:set_skill/loginpage/adminpage/widgets/edit_fluttercourse/edit_flutter.dart';
 import '../../../../database/database_flutter/db_function.dart';
 import '../../../../homepage/widgets/floating_widgets.dart';
-import 'overview_flutter.dart';
+import '../../overviewflutter_1/overview_section1.dart';
 
 class ListSectionsFlutter extends StatelessWidget {
   const ListSectionsFlutter({super.key});
@@ -60,7 +60,7 @@ class ListSectionsFlutter extends StatelessWidget {
                         children: [
                           IconButton(
                               onPressed: () {
-                                for (int i = 1; i <= 6; i++) {
+                                for (int i = 1; i <= 10; i++) {
                                   if (data.sections == 'section $i') {
                                     Navigator.push(context,
                                         MaterialPageRoute(builder: (context) {
@@ -156,125 +156,18 @@ class ListSectionsFlutter extends StatelessWidget {
     );
   }
 
-  Section1OverviewAdmin sectionoverviewmwethod(CourseFlutter data, int index) {
-    return Section1OverviewAdmin(
-        time: data.time,
-        overviewcoursename: data.overviewcoursename,
-        beginner: data.beginner,
-        whatyouwillearn: data.whatyouwilllearn,
-        index: index);
+  Section1Overview sectionoverviewmwethod(CourseFlutter data, int index) {
+    return Section1Overview(
+      time: data.time,
+      overviewcoursename: data.overviewcoursename,
+      beginner: data.beginner,
+      whatyouwillearn: data.whatyouwilllearn,
+      index: index,
+      text: 'NEXT',
+    );
   }
 
   popoutfuction(BuildContext context) {
     return Navigator.of(context).pop();
   }
 }
-//  ValueListenableBuilder(
-//             valueListenable: courselistNotifier,
-//             builder: (context, value, child) {
-              // if (value.isEmpty) {
-              //   return Center(
-              //     child: SizedBox(
-              //       height: 400,
-              //       child: Lottie.network(
-              //         'https://assets1.lottiefiles.com/private_files/lf30_lkquf6qz.json',
-              //       ),
-              //     ),
-              //   );
-              // } else {
-              //   return Expanded(
-              //     child: ListView.builder(
-              //       itemBuilder: ((context, index) {
-              //         final data = value[index];
-              //         return Row(
-              //           children: [
-              //             IconButton(
-              //                 onPressed: () {
-              //                   for (int i = 1; i <= 6; i++) {
-              //                     if (data.sections == 'section $i') {
-              //                       Navigator.push(context,
-              //                           MaterialPageRoute(builder: (context) {
-              //                         return sectionoverviewmwethod(
-              //                             data, index);
-              //                       }));
-              //                       break;
-              //                     }
-              //                   }
-              //                 },
-              //                 icon: const Icon(Icons.play_arrow)),
-              //             Text(data.sections,
-              //                 style: GoogleFonts.lato(
-              //                     fontWeight: FontWeight.bold)),
-              //             Container(
-              //                 margin: const EdgeInsets.only(left: 200),
-              //                 child: IconButton(
-              //                     onPressed: () {
-              //                       Navigator.push(context,
-              //                           MaterialPageRoute(builder: (context) {
-              //                         return EditFlutter(
-              //                           overviewcoursename:
-              //                               data.overviewcoursename,
-              //                           time: data.time,
-              //                           beginner: data.beginner,
-              //                           whatyouwilllearn: data.whatyouwilllearn,
-              //                           sectionname: data.sections,
-              //                           coursename: data.coursename,
-              //                           logolink: data.logolink,
-              //                           youtubevedioid: data.youtubevideoid,
-              //                           blog: data.blog,
-              //                           index: index,
-              //                         );
-              //                       }));
-              //                     },
-              //                     icon: const Icon(Icons.edit))),
-              //             IconButton(
-              //               onPressed: (() {
-              //                 showDialog(
-              //                   context: context,
-              //                   builder: ((context) {
-              //                     return Padding(
-              //                       padding: const EdgeInsets.all(20.0),
-              //                       child: AlertDialog(
-              //                         title: const Text(
-              //                           'Alert!',
-              //                           style: TextStyle(
-              //                               // color: Color.fromARGB(255, 8, 6, 6),
-              //                               ),
-              //                         ),
-              //                         content: const Text(
-              //                           "Do you want to delete this section",
-              //                         ),
-              //                         actions: [
-              //                           TextButton(
-              //                             onPressed: (() {
-              //                               popoutfuction(context);
-              //                               deletesection(index);
-              //                             }),
-              //                             child: const Text('Yes'),
-              //                           ),
-              //                           TextButton(
-              //                               onPressed: (() {
-              //                                 popoutfuction(context);
-              //                               }),
-              //                               child: const Text('No'))
-              //                         ],
-              //                       ),
-              //                     );
-              //                   }),
-              //                 );
-              //               }),
-              //               icon: const Icon(
-              //                 Icons.delete,
-              //                 color: Color.fromARGB(255, 179, 33, 23),
-              //               ),
-              //               tooltip: 'Delete',
-              //             ),
-              //           ],
-              //         );
-              //       }),
-              //       itemCount: value.length,
-              //     ),
-              //   );
-              // }
-            //},
-          //)

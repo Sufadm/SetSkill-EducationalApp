@@ -11,13 +11,15 @@ class Section1MernOverview extends StatefulWidget {
   final String beginner;
   final String whatyouwillearn;
   final int index;
+  final String text;
   const Section1MernOverview(
       {super.key,
       required this.time,
       required this.overviewcoursename,
       required this.beginner,
       required this.whatyouwillearn,
-      required this.index});
+      required this.index,
+      required this.text});
 
   @override
   State<Section1MernOverview> createState() => _Section1MernOverviewState();
@@ -41,8 +43,8 @@ class _Section1MernOverviewState extends State<Section1MernOverview> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Image.network(
-                      'https://www.rlogical.com/wp-content/uploads/2020/12/MERN-Stack-considered-the-Best-for-Developing-Web-Apps.png',
+                    Image.asset(
+                      'images/MERN-Stack-considered-the-Best-for-Developing-Web-Apps.png',
                     ),
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.015,
@@ -149,7 +151,7 @@ class _Section1MernOverviewState extends State<Section1MernOverview> {
                               }
                             },
                             child: Text(
-                              'Start Learning',
+                              widget.text,
                               style: GoogleFonts.lato(
                                   fontWeight: FontWeight.bold, fontSize: 20),
                             )))

@@ -30,7 +30,7 @@ class _MernAllCourseState extends State<MernAllCourse> {
       flags: const YoutubePlayerFlags(
         forceHD: false,
         autoPlay: false,
-        hideThumbnail: false,
+        hideThumbnail: true,
         disableDragSeek: false,
         loop: false,
       ),
@@ -125,14 +125,21 @@ class _MernAllCourseState extends State<MernAllCourse> {
     });
   }
 
-  youtubeHierarchy() {
-    return Align(
-      child: FittedBox(
-        fit: BoxFit.fill,
-        child: YoutubePlayer(
-          aspectRatio: 16 / 9,
-          controller: _controller,
-        ),
+  Widget youtubeHierarchy() {
+    return SizedBox(
+      height: 300, // Set your desired height here
+      child: YoutubePlayer(
+        controller: _controller,
+        bottomActions: [
+          const SizedBox(width: 14.0),
+          CurrentPosition(),
+          const SizedBox(width: 8.0),
+          ProgressBar(
+            isExpanded: true,
+          ),
+          RemainingDuration(),
+          const PlaybackSpeedButton(),
+        ],
       ),
     );
   }
