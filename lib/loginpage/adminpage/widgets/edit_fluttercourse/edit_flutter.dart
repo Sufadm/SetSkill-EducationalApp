@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:set_skill/database/models/fluttermodel/data_model.dart';
 import '../../../../database/database_flutter/db_function.dart';
+import '../../../../zzglobalconst/textform_widget.dart';
 
 class EditFlutter extends StatefulWidget {
   final String overviewcoursename;
@@ -82,90 +83,19 @@ class _EditFlutterState extends State<EditFlutter> {
                   ),
                 ),
                 //!Overviewtextformfield----started------
-                TextFormField(
-                  controller: _overviewcoursename,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Overview course required';
-                    } else {
-                      return null;
-                    }
-                  },
-                  style: const TextStyle(fontStyle: FontStyle.italic),
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(50)),
-                      labelText: 'Overview course name',
-                      hintStyle:
-                          const TextStyle(color: Color.fromARGB(255, 3, 2, 2))),
-                ),
+                OverviewTextFormWidget(overviewcoursename: _overviewcoursename),
                 const SizedBox(
                   height: 10,
                 ),
-                TextFormField(
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Time required';
-                    } else {
-                      return null;
-                    }
-                  },
-                  controller: _time,
-                  style: const TextStyle(
-                      // color: Color.fromARGB(255, 0, 0, 0),
-                      fontStyle: FontStyle.italic),
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(50)),
-                      labelText: 'Time',
-                      hintStyle:
-                          const TextStyle(color: Color.fromARGB(255, 3, 2, 2))),
-                ),
+                TimeTextFormWidget(time: _time),
 
                 const SizedBox(height: 10),
-                TextFormField(
-                  controller: _beginner,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return ' Beginner is Required';
-                    } else {
-                      return null;
-                    }
-                  },
-                  style: const TextStyle(
-                      // color: Color.fromARGB(255, 0, 0, 0),
-                      fontStyle: FontStyle.italic),
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(50)),
-                      labelText: 'Beginner',
-                      hintStyle:
-                          const TextStyle(color: Color.fromARGB(255, 3, 2, 2))),
+                BeginnerTextFormWidget(beginner: _beginner),
+                SizedBox(
+                  // height: 10,
+                  height: MediaQuery.of(context).size.height * 0.010,
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
-                TextFormField(
-                  controller: _whatyouwilllearn,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return ' What you will learn is Required';
-                    } else {
-                      return null;
-                    }
-                  },
-                  maxLines: 15,
-                  style: const TextStyle(
-                      //color: Color.fromARGB(255, 0, 0, 0),
-                      fontStyle: FontStyle.italic),
-                  decoration: InputDecoration(
-                      alignLabelWithHint: true,
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(50)),
-                      labelText: 'What you will learn',
-                      hintStyle:
-                          const TextStyle(color: Color.fromARGB(255, 3, 2, 2))),
-                ),
+                WhatLeanWidget(whatyouwilllearn: _whatyouwilllearn),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.010,
                 ),
@@ -175,116 +105,26 @@ class _EditFlutterState extends State<EditFlutter> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                TextFormField(
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return ' Section is Required';
-                    } else {
-                      return null;
-                    }
-                  },
-                  controller: _sectionname,
-                  style: const TextStyle(
-                      // color: Color.fromARGB(255, 0, 0, 0),
-                      fontStyle: FontStyle.italic),
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(50)),
-                      labelText: 'Section Name',
-                      hintStyle:
-                          const TextStyle(color: Color.fromARGB(255, 3, 2, 2))),
-                ),
+                SectionTextFormWidget(section: _sectionname),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.010,
                 ),
-                TextFormField(
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return ' Coursename is Required';
-                    } else {
-                      return null;
-                    }
-                  },
-                  controller: _coursename,
-                  style: const TextStyle(
-                      // color: Color.fromARGB(255, 0, 0, 0),
-                      fontStyle: FontStyle.italic),
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(50)),
-                      labelText: 'Course Name',
-                      hintStyle:
-                          const TextStyle(color: Color.fromARGB(255, 3, 2, 2))),
-                ),
+                CourseNameTextFormWidget(coursename: _coursename),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.010,
                 ),
-                TextFormField(
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return ' Logo is Required';
-                    } else {
-                      return null;
-                    }
-                  },
-                  controller: _logolink,
-                  style: const TextStyle(
-                      // color: Color.fromARGB(255, 0, 0, 0),
-                      fontStyle: FontStyle.italic),
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(50)),
-                      labelText: 'Logo Link',
-                      hintStyle:
-                          const TextStyle(color: Color.fromARGB(255, 3, 2, 2))),
-                ),
+                LogoTextFormWidget(logolink: _logolink),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.010,
                 ),
-                TextFormField(
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return ' Youtube vedio id is Required';
-                    } else {
-                      return null;
-                    }
-                  },
-                  controller: _youtubevedioid,
-                  style: const TextStyle(fontStyle: FontStyle.italic),
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(50)),
-                      labelText: 'youtube vedio id',
-                      hintStyle:
-                          const TextStyle(color: Color.fromARGB(255, 3, 2, 2))),
-                ),
+                YoutubeIdTextFormWidget(youtubevideoid: _youtubevedioid),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.010,
                 ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.010,
+                const SizedBox(
+                  height: 10,
                 ),
-                TextFormField(
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return ' Blog is Required';
-                    } else {
-                      return null;
-                    }
-                  },
-                  maxLines: 15,
-                  controller: _blog,
-                  style: const TextStyle(
-                      //  color: Color.fromARGB(255, 0, 0, 0),
-                      fontStyle: FontStyle.italic),
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(50)),
-                      labelText: 'Blog',
-                      alignLabelWithHint: true,
-                      hintStyle:
-                          const TextStyle(color: Color.fromARGB(255, 3, 2, 2))),
-                ),
+                BlogTextFormWidget(blog: _blog),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.010,
                 ),

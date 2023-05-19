@@ -113,7 +113,7 @@ class _MyCourseState extends State<MyCourse> {
                             ),
                             backgroundColor: Colors.grey,
                             circularStrokeCap: CircularStrokeCap.round,
-                            progressColor: count == 0 ? null : Colors.redAccent,
+                            progressColor: count == 0 ? null : Colors.green,
                             linearGradient: null,
                             animateFromLastPercent: false,
                           );
