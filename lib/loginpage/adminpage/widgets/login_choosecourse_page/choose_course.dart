@@ -14,7 +14,7 @@ class ChooseCourse extends StatelessWidget {
       backgroundColor: Colors.black,
       appBar: AppBar(
         leading: const BackButton(
-          color: Colors.black, // <-- SEE HERE
+          color: Colors.black,
         ),
         backgroundColor: Colors.amber,
       ),
@@ -72,8 +72,6 @@ class ChooseCourse extends StatelessWidget {
                       backgroundColor: MaterialStateProperty.all(Colors.amber),
                     ),
                     onPressed: () {
-                      // Navigator.pushNamed(context, 'MernAddCourse');
-                      //Navigator.pushNamed(context, 'listsectionmern');
                       Navigator.of(context).push(PageRouteBuilder(
                         pageBuilder:
                             ((context, animation, secondaryAnimation) =>

@@ -160,10 +160,8 @@ class _AdminAccessPageState extends State<AdminAccessPage> {
         sections: sectionflutter,
         ischecked: false,
       );
-
       Provider.of<CourseFlutterProvider>(context, listen: false)
           .addcourseflutter(model1);
-
       Navigator.pop(context);
     }
   }
