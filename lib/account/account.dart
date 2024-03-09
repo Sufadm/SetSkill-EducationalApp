@@ -10,7 +10,7 @@ class Account extends StatelessWidget {
         text: 'Skillset',
         linkUrl:
             'https://play.google.com/store/apps/details?id=in.brototype.set_skill',
-        chooserTitle: 'Example Chooser Title');
+        chooserTitle: 'Example Chooser Titl');
   }
 
   const Account({super.key});
