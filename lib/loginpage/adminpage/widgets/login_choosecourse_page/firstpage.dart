@@ -78,7 +78,7 @@ class Firstpage extends StatelessWidget {
                               }));
                             },
                             child: Text(
-                              'Login',
+                              'Admin',
                               style: GoogleFonts.lato(
                                   fontWeight: FontWeight.bold, fontSize: 20),
                             )),

@@ -55,7 +55,7 @@ android {
     defaultConfig {
             minSdkVersion 21
          targetSdkVersion 33
-        applicationId "in.brototype.set_skill"
+        applicationId "in.sufad.set_skill"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-build-configuration.
         // minSdkVersion flutter.minSdkVersion

@@ -73,14 +73,3 @@ class SearchProvider extends ChangeNotifier {
     mergedCourse.addAll(mernDB.values);
   }
 }
-
-// class SearchProvider extends ChangeNotifier {
-//   List<dynamic> mergedCourseProvider = ([]);
-//   Future<void> merging() async {
-//     final sectionsDB = await Hive.openBox<CourseFlutter>('coursedetails');
-//     final mernDB = await Hive.openBox<CourseMern>('coursedetailsmern');
-//     mergedCourseProvider.clear();
-//     mergedCourseProvider.addAll(sectionsDB.values);
-//     mergedCourseProvider.addAll(mernDB.values);
-//   }
-// }

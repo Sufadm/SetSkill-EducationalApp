@@ -51,7 +51,9 @@ class LessonTwoMern extends StatelessWidget {
                           children: [
                             IconButton(
                                 onPressed: () {
-                                  for (int i = 1; i <= 6; i++) {
+                                  for (int i = 1;
+                                      i <= data.sectionsmern.length;
+                                      i++) {
                                     if (data.sectionsmern == 'section $i') {
                                       Navigator.push(context,
                                           MaterialPageRoute(builder: (context) {
